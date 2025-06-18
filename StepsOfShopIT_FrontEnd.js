@@ -151,3 +151,13 @@
 //     res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
 // });
 
+// step 3
+// Create Git Repo And Push The Project
+// SET .env.production for production and add environment variables
+
+// Step 4 
+// DEPLOYMENT
+// deploy on render
+// render -> signin with git -> select project repo-> add branch -> 
+// set start as npm start -> select free tier -> add from .env set environment variables
+// Deploy Web Service
