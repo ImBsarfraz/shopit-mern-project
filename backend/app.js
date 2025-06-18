@@ -5,10 +5,11 @@ import cookieParser from 'cookie-parser';
 import { ConnectDatabase } from './config/dbConnection.js';
 import errorMiddleware from './middlewares/error.js';
 
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from "path";
+import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 // Handle Uncaught Exceptions
 process.on("uncaughtException", (err) => {
@@ -51,14 +52,16 @@ app.use('/api/v1', orderRoutes);
 // payment routes
 app.use('/api/v1', paymentRoutes);
 
-// connecting backend to frontend // production
-if (process.env.NODE_ENV === "PRODUCTION") {
-    app.use(express.static(path.join(__dirname, "../frontend/build")));
+// backend to frontend connection
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
-    });
+if (process.env.NODE_ENV === "PRODUCTION") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+  });
 }
+
 
 // Using Error middleware
 app.use(errorMiddleware);

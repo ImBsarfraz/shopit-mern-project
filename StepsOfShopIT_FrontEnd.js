@@ -160,4 +160,4 @@
 // deploy on render
 // render -> signin with git -> select project repo-> add branch -> 
 // set start as npm start -> select free tier -> add from .env set environment variables
-// Deploy Web Service
+// Deploy Web Service -> copy given link paste it in environment varibale of frontend -> save and 
